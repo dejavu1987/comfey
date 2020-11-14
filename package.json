@@ -1,0 +1,28 @@
+{
+  "name": "comfey",
+  "version": "0.1.0",
+  "description": "Tiny micro mini data binding library inspired by react hook useState",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dejavu1987/comfey.git"
+  },
+  "keywords": [
+    "comfey",
+    "tiny",
+    "micro",
+    "mini",
+    "data",
+    "binding",
+    "state"
+  ],
+  "author": "anil@anilmaharjan.com.np",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dejavu1987/comfey/issues"
+  },
+  "homepage": "https://github.com/dejavu1987/comfey#readme"
+}
