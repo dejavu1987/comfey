@@ -40,4 +40,4 @@ function updateView(stateName, value) {
   }
 }
 
-export default useState;
+export { useState };
