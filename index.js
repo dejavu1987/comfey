@@ -49,6 +49,14 @@ class Comfey {
       if (value) boundEl.classList.add('hidden');
       else boundEl.classList.remove('hidden');
     }
+    const boundAttrElems = this.root.querySelectorAll(
+      `[data-bind-attr^="${stateName}:"]`
+    );
+    for (const boundEl of boundAttrElems) {
+      const [, attr, val] = boundEl.dataset.bindAttr.split('::');
+      if (value) boundEl.setAttribute(attr, val.replaceAll('$', value));
+      else boundEl.removeAttribute(attr);
+    }
   }
 }
 
