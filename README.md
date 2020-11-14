@@ -1,4 +1,4 @@
-### Comfey
+# Comfey
 
 Comfey is a tiny data binding library inspired by React hook useState
 
@@ -8,11 +8,88 @@ Comfey is a tiny data binding library inspired by React hook useState
 - No loops, event driven
 - Simple HTML5 data attributes to bind the html elements to the states
 
+## Usage
+
+### Install
+
+Using NPM
+```
+npm install comfey
+```
+
+Using Yarn
+```
+yarn add comfey
+```
+
+### Initialize component
+
+Instantiate `Comfey` - optionally passing a `DOMElement` as root of the component.
+By default `document` will be used.
+
+```js
+import Comfey from "comfey";
+const myComponent = new Comfey(document.getElementById('my-component'));
+```
+
+### Initialize state
+
+Use `.useState()` method to initialize a state, `useState()` accepts 3 parameters.
+Returns getter and setter functions
+
+```js
+/**
+   *
+   * @param {string} state name of the state
+   * @param {any} initialVal initial value
+   * @param {function} watcher watcher function that will be called everytime the value of the state changes
+   *
+   * @returns {Array<[function, function]>} getterFunction and SetterFunction
+   */
+```
+
+Example:
+
+```js
+const [count, setCount] = app.useState("count", 3, countWatcher);
+```
+
+### Watch
+
+Watch gets `newValue` and `oldValue` of the state and is invoked everytime the state changes.
+```js
+function countWatcher(newVal, oldVal) {
+  // Do something when value of count state changes
+}
+```
+
+### Templating
+
+Use `data-bind` attribute with stateName as its value to bind the `innerHTML` of the element to the state's value
+Other binding data attributes
+- `data-bind-visible`
+- `data-bind-hidden`
+
+```html
+<div id="my-component">
+  <div>Count: <span data-bind="count">
+    <!--   This placeholder will be updated with value of count state -->
+    </span></div>
+  <div>Show plus: <span data-bind="showPlus">x</span></div>
+  <div>Hide minus: <span data-bind="hideMinus">x</span></div>
+  <div class="buttons">
+    <!--   Increment button will be visible if showPlus state is set to true   -->
+    <button id="increment" data-bind-visible="showPlus">+</button>
+    <button id="decrement" data-bind-hidden="hideMinus">-</button>
+  </div>
+</div>
+```
+
 ## Example Application (Counter)
 
 [CodeSandbox](https://codesandbox.io/s/comfy-example-es207?file=/src/index.js)
 
-```JavaScript
+```js
 import Comfey from "comfey";
 const app = new Comfey(document.getElementById('app'));
 
@@ -45,53 +122,4 @@ btnIncrement.addEventListener("click", () => {
 btnDecrement.addEventListener("click", () => {
   setCount(count() - 1);
 });
-```
-
-## Usage
-
-### Install
-
-Using NPM
-```
-npm install comfey
-```
-
-Using Yarn
-```
-yarn add comfey
-```
-
-### Initialize component
-
-```JavaScript
-import Comfey from "comfey";
-const myComponent = new Comfey(document.getElementById('my-component'));
-```
-
-### Initialize state
-
-```JavaScript
-const [count, setCount] = app.useState("count", 3, countWatcher);
-```
-
-### Watch
-```JavaScript
-function countWatcher(newVal, oldVal) {
-  // Do something when value of count state changes
-}
-```
-### Templating
-```HTML
-<div id="my-component">
-  <div>Count: <span data-bind="count">
-    <!--   This placeholder will be updated with value of count state -->
-    </span></div>
-  <div>Show plus: <span data-bind="showPlus">x</span></div>
-  <div>Hide minus: <span data-bind="hideMinus">x</span></div>
-  <div class="buttons">
-    <!--   Increment button will be visible if showPlus state is set to true   -->
-    <button id="increment" data-bind-visible="showPlus">+</button>
-    <button id="decrement" data-bind-hidden="hideMinus">-</button>
-  </div>
-</div>
 ```
