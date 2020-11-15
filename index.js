@@ -36,12 +36,26 @@ class Comfey {
       boundEl.innerHTML = value;
     }
     const boundVisibleElems = this.root.querySelectorAll(
-      `[data-bind-visible="${stateName}"]`
+      `[data-bind-visible^="${stateName}"]`
     );
+
     for (const boundEl of boundVisibleElems) {
-      if (value) boundEl.classList.add('visible');
+      const [, val, comparator] = boundEl.dataset.bindVisible.split('::');
+      if (comparator) {
+        console.warn(
+          'Comfey: Comparators are not yet supported in bind-visible.'
+        );
+      }
+      if (val) {
+        if (val === value) {
+          boundEl.classList.add('visible');
+        } else {
+          boundEl.classList.remove('visible');
+        }
+      } else if (value) boundEl.classList.add('visible');
       else boundEl.classList.remove('visible');
     }
+
     const boundHiddenElems = this.root.querySelectorAll(
       `[data-bind-hidden="${stateName}"]`
     );

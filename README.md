@@ -73,6 +73,7 @@ Use `data-bind` attribute with stateName as its value to bind the `innerHTML` of
 Other binding data attributes
 
 - `data-bind-visible`
+  -- Accepts value to compare (See next example)
 - `data-bind-hidden`
 
 ```html
@@ -98,6 +99,12 @@ Other binding data attributes
         data-bind="count"
         >x</span
       >
+    </div>
+    <div>
+      NumberStatus:
+      <span data-bind-visible="numberStatus::medium">Medium</span>
+      <span data-bind-visible="numberStatus::max">Max</span>
+      <span data-bind-visible="numberStatus::min">Min</span>
     </div>
   </div>
 </div>
