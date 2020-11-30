@@ -22,7 +22,7 @@ class Comfey {
     const stateName = state;
     let value = initialVal;
     const setter = (newVal) => {
-      if (watcher) watcher(newVal, value);
+      if (watcher) watcher(newVal, value, stateName);
       value = newVal;
       this.updateView(stateName, value);
     };
