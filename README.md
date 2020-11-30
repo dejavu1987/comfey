@@ -59,10 +59,10 @@ const [count, setCount] = app.useState('count', 3, countWatcher);
 
 ### Watch
 
-Watch gets `newValue` and `oldValue` of the state and is invoked everytime the state changes.
+Watch gets `newValue`, `oldValue` and `name` of the state and is invoked everytime the state changes.
 
 ```js
-function countWatcher(newVal, oldVal) {
+function countWatcher(newVal, oldVal, stateName) {
   // Do something when value of count state changes
 }
 ```
