@@ -35,6 +35,8 @@ class Comfey {
     for (const boundEl of boundElems) {
       boundEl.innerHTML = value;
     }
+
+    // Visible
     const boundVisibleElems = this.root.querySelectorAll(
       `[data-bind-visible^="${stateName}"]`
     );
@@ -56,6 +58,7 @@ class Comfey {
       else boundEl.classList.remove('visible');
     }
 
+    // Hidden
     const boundHiddenElems = this.root.querySelectorAll(
       `[data-bind-hidden="${stateName}"]`
     );
@@ -63,6 +66,25 @@ class Comfey {
       if (value) boundEl.classList.add('hidden');
       else boundEl.classList.remove('hidden');
     }
+
+    // Classes
+    const boundClassElems = this.root.querySelectorAll(
+      `[data-bind-class^="${stateName}:"]`
+    );
+    for (const boundEl of boundClassElems) {
+      const [, val, comparator] = boundEl.dataset.bindClass.split('::');
+      const className = val;
+      if (!className) return;
+
+      if (
+        (value && !comparator) ||
+        (value && comparator && value == comparator)
+      )
+        boundEl.classList.add(className);
+      else boundEl.classList.remove(className);
+    }
+
+    // Attr
     const boundAttrElems = this.root.querySelectorAll(
       `[data-bind-attr^="${stateName}:"]`
     );

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example Comfey bind-class</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Comfey Example - Bind Class</h1>
+      <div>
+        <h2>Simple boolean binding with static string class</h2>
+        <div class="active-check" data-bind-class="stateActive::active">
+          Green if active
+        </div>
+      </div>
+
+      <div>
+        <h2>Static class binding with value comparison</h2>
+        <div
+          class="dynamic-class-check"
+          data-bind-class="fontSize::large::large"
+        >
+          Font size changes with the state fontSize
+        </div>
+      </div>
+      <div id="debug">
+        <h2>Comfey Debug</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>stateActive</th>
+              <td>
+                <span data-bind="stateActive"></span>
+              </td>
+            </tr>
+            <tr>
+              <th>fontSize</th>
+              <td><span data-bind="fontSize"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br />
+    <hr />
+    <em
+      >Note: Use `bind-attr` if you need dynamic value to an attribute, since
+      classList can take multivalue, its not recommend to manage dynamic
+      value.</em
+    >
+    <style>
+      .active-check {
+        color: red;
+      }
+      .active {
+        color: green;
+      }
+
+      .dynamic-class-check {
+        font-size: 16px;
+      }
+      .dynamic-class-check.large {
+        font-size: 36px;
+      }
+    </style>
+    <script src="./index.js"></script>
+  </body>
+</html>
