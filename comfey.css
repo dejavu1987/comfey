@@ -8,6 +8,12 @@
   left: 0;
   bottom: 0;
   text-align: left;
+  padding: 10px;
+  box-sizing: border-box;
+}
+#debug h2 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #debug table {
   border: 1px solid;
