@@ -69,12 +69,40 @@ function countWatcher(newVal, oldVal, stateName) {
 
 ### Templating
 
-Use `data-bind` attribute with stateName as its value to bind the `innerHTML` of the element to the state's value
-Other binding data attributes
+#### Bind data with `data-bind`
+
+Use `data-bind` attribute with stateName as its value to bind the `innerHTML` of the element to the state's value.
+
+#### Visibility
 
 - `data-bind-visible`
-  -- Accepts value to compare (See next example)
 - `data-bind-hidden`
+
+Bind visible and hidden accepts value to compare.
+
+Example
+
+`data-bind-visible="numberStatus::medium"`
+
+means the element will be visible if the state `numberStatus` is set to `medium` value.
+
+#### Bind attributes w/ `data-bind-attr`
+
+Data bind attributes can take values delimited by `::` which will make each delimited string an argument. The argument pattern looks like
+
+`<state>::<dynamic-attr>::<value>`
+
+Example:
+
+`data-bind-attr="count::style::font-size: $rem"`
+
+means, a dynamic attribute will be added to the HTML element when the state `count` has a value, the attribute added will be `style` attribute and the value for the style attribute will be
+
+`font-size: <StateValue>rem`
+
+## Examples
+
+### Counter Example
 
 ```html
 <div id="my-component">
@@ -110,7 +138,7 @@ Other binding data attributes
 </div>
 ```
 
-## Example Application (Counter)
+### Example Application (Counter)
 
 [CodeSandbox](https://codesandbox.io/s/comfy-example-es207?file=/src/index.js)
 
@@ -149,6 +177,6 @@ btnDecrement.addEventListener('click', () => {
 });
 ```
 
-## Example Application (Comfey - Pokemon buddy game)
+### Example Application (Comfey - Pokemon buddy game)
 
 [Codesandbox](https://codesandbox.io/s/comfey-demo-4n5zt?file=/src/index.js)
