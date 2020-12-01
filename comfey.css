@@ -1,17 +1,19 @@
 .comfey-debug {
-  background: #444;
+  background: rgba(22, 22, 22, 0.9);
+  font-size: 14px;
   color: white;
   font-family: 'Courier New', Courier, monospace;
   position: fixed;
   width: 100%;
-  max-height: 30%;
+  height: fit-content;
+  max-height: 40%;
   overflow-y: auto;
   left: 0;
   bottom: 0;
   text-align: left;
   padding: 10px;
   box-sizing: border-box;
-  opacity: 0.95;
+  margin: 0;
 }
 .comfey-debug h2 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
@@ -23,14 +25,14 @@
   border-collapse: collapse;
 }
 .comfey-debug table tr {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #666;
 }
 .comfey-debug table th,
 .comfey-debug table td {
-  padding: 10px;
+  padding: 5px;
 }
 .comfey-debug table tbody th {
-  border-right: 1px solid #777;
+  border-right: 1px solid #555;
   width: 300px;
   color: #9bbbdc;
 }
