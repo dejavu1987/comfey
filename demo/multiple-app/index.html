@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example Comfey bind-class</title>
+  </head>
+  <body>
+    <h1>Comfey Example MultiApp</h1>
+    <div class="apps">
+      <div id="app1">
+        <h2>App1</h2>
+        <div>
+          <div class="active-check" data-bind-class="stateActive::active">
+            Green if active
+          </div>
+        </div>
+
+        <div>
+          <div
+            class="dynamic-class-check"
+            data-bind-class="fontSize::large::large"
+          >
+            Font size changes with the state fontSize
+          </div>
+        </div>
+      </div>
+      <div id="app2">
+        <h2>App2</h2>
+        <div>
+          <div class="active-check" data-bind-class="stateActive::active">
+            Green if active
+          </div>
+        </div>
+
+        <div>
+          <div
+            class="dynamic-class-check"
+            data-bind-class="fontSize::large::large"
+          >
+            Font size changes with the state fontSize
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <hr />
+    <em
+      >Notes:
+      <ul>
+        <li>Multiple app can have duplicate states</li>
+        <li>they will be scoped within each app</li>
+        <li>You will have to scope you javascript as well</li>
+        <li>Just avoid declaring getters and setters globally</li>
+      </ul>
+    </em>
+    <style>
+      .apps {
+        display: flex;
+      }
+      .apps > div {
+        width: 50%;
+        min-height: 300px;
+      }
+      .active-check {
+        color: red;
+      }
+      .active {
+        color: green;
+      }
+
+      .dynamic-class-check {
+        font-size: 16px;
+      }
+      .dynamic-class-check.large {
+        font-size: 36px;
+      }
+    </style>
+    <script src="./index.js"></script>
+  </body>
+</html>

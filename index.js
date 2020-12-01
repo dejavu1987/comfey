@@ -7,8 +7,32 @@
  * 0.7 lbs.	0.3 kg
  **/
 class Comfey {
-  constructor(root = document) {
+  constructor(root = document, debug = false) {
     this.root = root;
+    this.debug = debug;
+
+    if (debug) {
+      const rootIdentifier =
+        root.tagName + (root.id != '' ? '#' + root.id : '');
+      const debugUI = document.createElement('div');
+      debugUI.addEventListener('dragend', (e) => {
+        e.preventDefault();
+        e.target.style.top = `${e.pageY}px`;
+      });
+      debugUI.setAttribute('class', 'comfey-debug');
+      debugUI.setAttribute('draggable', true);
+      debugUI.innerHTML = `<h2>Comfey Debug (${rootIdentifier})</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>`;
+      this.root.appendChild(debugUI);
+    }
   }
   /**
    *
@@ -27,6 +51,16 @@ class Comfey {
       this.updateView(stateName, value);
     };
     this.updateView(stateName, value);
+    if (this.debug) {
+      const debugRow = document.createElement('tr');
+      debugRow.innerHTML = `
+              <th>${state}</th>
+              <td>
+                <span data-bind="${state}"></span>
+              </td>
+            `;
+      this.root.querySelector('.comfey-debug tbody').appendChild(debugRow);
+    }
     return [() => value, setter];
   }
 

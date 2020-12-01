@@ -67,6 +67,41 @@ function countWatcher(newVal, oldVal, stateName) {
 }
 ```
 
+## Multi Apps
+
+You can have any number of applications on a page. Instanciate a new Comfey whenever you need.
+
+- Multiple app can use duplicate state names
+- they will be scoped within each app
+- You will have to scope your javascript as well
+- Just avoid declaring getters and setters globally
+
+Example
+
+```js
+// scoped code blocks can use same getters / setters, etc names if desired.
+// name uniquely if needs to be in the same scope
+(() => {
+  const app = new Comfey(document.getElementById('app1'), COMFEY_DEBUG);
+  const [, setActive] = app.useState('stateActive', false);
+
+  setInterval(() => {
+    setActive(Math.random() > 0.5);
+  }, 1000);
+})();
+
+(() => {
+  const app = new Comfey(document.getElementById('app2'), COMFEY_DEBUG);
+  const [, setActive] = app.useState('stateActive', false);
+
+  setInterval(() => {
+    setActive(Math.random() > 0.5);
+  }, 1000);
+})();
+```
+
+[More Multi App DEMOs](./demo/multiple-app/index.html)
+
 ### Templating
 
 #### Bind data with `data-bind`
@@ -85,6 +120,20 @@ Example
 `data-bind-visible="numberStatus::medium"`
 
 means the element will be visible if the state `numberStatus` is set to `medium` value.
+
+#### Class
+
+- `data-bind-class`
+
+Bind class accepts value to compare, but will not interpolate the bound value as a classname.
+
+Example
+
+`data-bind-class="currentPage::active::home"`
+
+means the element will get active class if the state `currentPage` is set to `home` value.
+
+[More bind-class DEMOs](./demo/bind-class/index.html)
 
 #### Bind attributes w/ `data-bind-attr`
 

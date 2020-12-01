@@ -1,8 +1,8 @@
 import Comfey from '../../index';
 import '../../comfey.css';
-
-const app = new Comfey(document.getElementById('app'));
-const [getActive, setActive] = app.useState('stateActive', false);
+const COMFEY_DEBUG = true;
+const app = new Comfey(document.getElementById('app'), COMFEY_DEBUG);
+const [, setActive] = app.useState('stateActive', false);
 const [, setFontSize] = app.useState('fontSize', '');
 
 setInterval(() => {
