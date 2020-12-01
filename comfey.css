@@ -6,7 +6,6 @@
   position: fixed;
   width: 100%;
   height: fit-content;
-  max-height: 40%;
   overflow-y: auto;
   left: 0;
   bottom: 0;
@@ -14,6 +13,7 @@
   padding: 10px;
   box-sizing: border-box;
   margin: 0;
+  resize: both;
 }
 .comfey-debug h2 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
@@ -23,6 +23,7 @@
   border: 1px solid;
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 .comfey-debug table tr {
   border-bottom: 1px solid #666;
@@ -33,7 +34,7 @@
 }
 .comfey-debug table tbody th {
   border-right: 1px solid #555;
-  width: 300px;
+  min-width: 100px;
   color: #9bbbdc;
 }
 .comfey-debug table td {

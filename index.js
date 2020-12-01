@@ -18,6 +18,7 @@ class Comfey {
       debugUI.addEventListener('dragend', (e) => {
         e.preventDefault();
         e.target.style.top = `${e.pageY}px`;
+        e.target.style.left = `${e.pageX}px`;
       });
       debugUI.setAttribute('class', 'comfey-debug');
       debugUI.setAttribute('draggable', true);
