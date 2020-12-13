@@ -24,6 +24,7 @@ Comfey is a tiny data binding library inspired by React hook useState
   * [Counter Example](#counter-example)
   * [Counter - CodeSandbox](#counter---codesandbox)
   * [Comfey - Pokemon buddy game](#comfey---pokemon-buddy-game)
+  * [Multi level navigation](#multi-level-navigation)
 
 
 ## Install 
@@ -244,3 +245,7 @@ btnDecrement.addEventListener('click', () => {
 ### Comfey - Pokemon buddy game
 
 [Codesandbox](https://codesandbox.io/s/comfey-demo-4n5zt?file=/src/index.js)
+
+### Multi level navigation
+
+[Codesandbox](https://codesandbox.io/s/h1jjx)
