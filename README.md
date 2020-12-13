@@ -9,9 +9,24 @@ Comfey is a tiny data binding library inspired by React hook useState
 - No loops, event driven
 - Simple HTML5 data attributes to bind the html elements to the states
 
-## Usage
+## Table of content
+- [Install](#install)
+- [Initialize component](#initialize-component)
+- [Initialize state](#initialize-state)
+- [Watch](#watch)
+- [Multi Apps](#multi-apps)
+- [Templating](#templating)
+  * [Bind state value to an element](#bind-state-value-to-an-element)
+  * [Visibility](#visibility)
+  * [Class](#class)
+  * [Bind attributes](#bind-attributes)
+- [Examples](#examples)
+  * [Counter Example](#counter-example)
+  * [Counter - CodeSandbox](#counter---codesandbox)
+  * [Comfey - Pokemon buddy game](#comfey---pokemon-buddy-game)
 
-### Install
+
+## Install 
 
 Using NPM
 
@@ -25,7 +40,7 @@ Using Yarn
 yarn add comfey
 ```
 
-### Initialize component
+## Initialize component
 
 Instantiate `Comfey` - optionally passing a `DOMElement` as root of the component.
 By default `document` will be used.
@@ -35,7 +50,7 @@ import Comfey from 'comfey';
 const myComponent = new Comfey(document.getElementById('my-component'));
 ```
 
-### Initialize state
+## Initialize state
 
 Use `.useState()` method to initialize a state, `useState()` accepts 3 parameters.
 Returns getter and setter functions
@@ -57,7 +72,7 @@ Example:
 const [count, setCount] = app.useState('count', 3, countWatcher);
 ```
 
-### Watch
+## Watch
 
 Watch gets `newValue`, `oldValue` and `name` of the state and is invoked everytime the state changes.
 
@@ -102,13 +117,13 @@ Example
 
 [More Multi App DEMOs](./demo/multiple-app/index.html)
 
-### Templating
+## Templating
 
-#### Bind data with `data-bind`
+### Bind state value to an element
 
 Use `data-bind` attribute with stateName as its value to bind the `innerHTML` of the element to the state's value.
 
-#### Visibility
+### Visibility
 
 - `data-bind-visible`
 - `data-bind-hidden`
@@ -121,7 +136,7 @@ Example
 
 means the element will be visible if the state `numberStatus` is set to `medium` value.
 
-#### Class
+### Class
 
 - `data-bind-class`
 
@@ -135,9 +150,9 @@ means the element will get active class if the state `currentPage` is set to `ho
 
 [More bind-class DEMOs](./demo/bind-class/index.html)
 
-#### Bind attributes w/ `data-bind-attr`
+### Bind attributes 
 
-Data bind attributes can take values delimited by `::` which will make each delimited string an argument. The argument pattern looks like
+You can bind an attribute to a state's value w/ `data-bind-attr`. Data bind attributes can take values delimited by `::` which will make each delimited string an argument. The argument pattern looks like
 
 `<state>::<dynamic-attr>::<value>`
 
@@ -187,7 +202,7 @@ means, a dynamic attribute will be added to the HTML element when the state `cou
 </div>
 ```
 
-### Example Application (Counter)
+### Counter - CodeSandbox
 
 [CodeSandbox](https://codesandbox.io/s/comfy-example-es207?file=/src/index.js)
 
@@ -226,6 +241,6 @@ btnDecrement.addEventListener('click', () => {
 });
 ```
 
-### Example Application (Comfey - Pokemon buddy game)
+### Comfey - Pokemon buddy game
 
 [Codesandbox](https://codesandbox.io/s/comfey-demo-4n5zt?file=/src/index.js)
