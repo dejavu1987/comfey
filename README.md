@@ -1,6 +1,6 @@
 # Comfey
 
-Comfey is a tiny data binding library inspired by React hook useState
+Comfey is a tiny data binding library inspired by React hook useState. Read more in [Comfey Wiki](https://github.com/dejavu1987/comfey/wiki)
 
 ## Features
 
