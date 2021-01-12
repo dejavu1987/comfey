@@ -19,6 +19,9 @@
     "binding",
     "state"
   ],
+  "exports": {
+    "./fsm": "./fsm/index.js"
+  },
   "author": "anil@anilmaharjan.com.np",
   "license": "MIT",
   "bugs": {
