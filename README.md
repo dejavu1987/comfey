@@ -8,26 +8,27 @@ Comfey is a tiny data binding library inspired by React hook useState. Read more
 - Looks like react hook useState
 - No loops, event driven
 - Simple HTML5 data attributes to bind the html elements to the states
+- Finite State Machine as a [plugin](./fsm/README.md)
 
 ## Table of content
+
 - [Install](#install)
 - [Initialize component](#initialize-component)
 - [Initialize state](#initialize-state)
 - [Watch](#watch)
 - [Multi Apps](#multi-apps)
 - [Templating](#templating)
-  * [Bind state value to an element](#bind-state-value-to-an-element)
-  * [Visibility](#visibility)
-  * [Class](#class)
-  * [Bind attributes](#bind-attributes)
+  - [Bind state value to an element](#bind-state-value-to-an-element)
+  - [Visibility](#visibility)
+  - [Class](#class)
+  - [Bind attributes](#bind-attributes)
 - [Examples](#examples)
-  * [Counter Example](#counter-example)
-  * [Counter - CodeSandbox](#counter---codesandbox)
-  * [Comfey - Pokemon buddy game](#comfey---pokemon-buddy-game)
-  * [Multi level navigation](#multi-level-navigation)
+  - [Counter Example](#counter-example)
+  - [Counter - CodeSandbox](#counter---codesandbox)
+  - [Comfey - Pokemon buddy game](#comfey---pokemon-buddy-game)
+  - [Multi level navigation](#multi-level-navigation)
 
-
-## Install 
+## Install
 
 Using NPM
 
@@ -151,7 +152,7 @@ means the element will get active class if the state `currentPage` is set to `ho
 
 [More bind-class DEMOs](./demo/bind-class/index.html)
 
-### Bind attributes 
+### Bind attributes
 
 You can bind an attribute to a state's value w/ `data-bind-attr`. Data bind attributes can take values delimited by `::` which will make each delimited string an argument. The argument pattern looks like
 
