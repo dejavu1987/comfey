@@ -24,7 +24,6 @@ Comfey is a tiny data binding library inspired by React hook useState. Read more
   - [Bind attributes](#bind-attributes)
 - [Examples](#examples)
   - [Counter Example](#counter-example)
-  - [Counter - CodeSandbox](#counter---codesandbox)
   - [Comfey - Pokemon buddy game](#comfey---pokemon-buddy-game)
   - [Multi level navigation](#multi-level-navigation)
 
@@ -169,6 +168,7 @@ means, a dynamic attribute will be added to the HTML element when the state `cou
 ## Examples
 
 ### Counter Example
+[CodeSandbox](https://codesandbox.io/s/comfy-example-es207?file=/src/index.js)
 
 ```html
 <div id="my-component">
@@ -203,10 +203,6 @@ means, a dynamic attribute will be added to the HTML element when the state `cou
   </div>
 </div>
 ```
-
-### Counter - CodeSandbox
-
-[CodeSandbox](https://codesandbox.io/s/comfy-example-es207?file=/src/index.js)
 
 ```js
 import Comfey from 'comfey';
