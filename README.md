@@ -26,6 +26,7 @@ Comfey is a tiny data binding library inspired by React hook useState. Read more
   - [Counter Example](#counter-example)
   - [Comfey - Pokemon buddy game](#comfey---pokemon-buddy-game)
   - [Multi level navigation](#multi-level-navigation)
+- [Change log](#change-log)
 
 ## Install
 
