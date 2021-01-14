@@ -1,4 +1,4 @@
-# Comfey
+# Comfey 2
 
 Comfey is a tiny data binding library inspired by React hook useState. Read more in [Comfey Wiki](https://github.com/dejavu1987/comfey/wiki)
 
@@ -168,6 +168,7 @@ means, a dynamic attribute will be added to the HTML element when the state `cou
 ## Examples
 
 ### Counter Example
+
 [CodeSandbox](https://codesandbox.io/s/comfy-example-es207?file=/src/index.js)
 
 ```html

@@ -22,6 +22,7 @@
   "exports": {
     "./fsm": "./fsm/index.js"
   },
+  "type": "module",
   "author": "anil@anilmaharjan.com.np",
   "license": "MIT",
   "bugs": {

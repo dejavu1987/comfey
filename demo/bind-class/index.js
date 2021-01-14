@@ -1,7 +1,11 @@
 import Comfey from '../../index';
 import '../../comfey.css';
+import ComfeyDom from '../../view/dom';
+
 const COMFEY_DEBUG = true;
-const app = new Comfey(document.getElementById('app'), COMFEY_DEBUG);
+const app = new Comfey(
+  new ComfeyDom(document.getElementById('app'), COMFEY_DEBUG)
+);
 const [, setActive] = app.useState('stateActive', false);
 const [, setFontSize] = app.useState('fontSize', '');
 
