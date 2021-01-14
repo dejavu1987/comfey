@@ -3,6 +3,7 @@ const app = new Comfey();
 const [, setMessage] = app.useState('stateMessage', false, messageWatcher);
 
 function messageWatcher(message) {
+  console.clear();
   console.log({ message });
 }
 

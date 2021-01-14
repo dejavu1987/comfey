@@ -7,7 +7,7 @@ Comfey is a tiny data binding library inspired by React hook useState. Read more
 - 0 dependencies / Lightweight v1.0.0 is 35 lines of code
 - Looks like react hook useState
 - No loops, event driven
-- Simple HTML5 data attributes to bind the html elements to the states
+- (Optional) Simple HTML5 data attributes to bind the html elements to the states
 - Finite State Machine as a [plugin](./fsm/README.md)
 
 ## Table of content
@@ -48,7 +48,7 @@ By default `document` will be used.
 
 ```js
 import Comfey from 'comfey';
-const myComponent = new Comfey(document.getElementById('my-component'));
+const myComponent = new Comfey();
 ```
 
 ## Initialize state
@@ -95,10 +95,13 @@ You can have any number of applications on a page. Instanciate a new Comfey when
 Example
 
 ```js
+import ComfeyDom from 'comfey/dom';
 // scoped code blocks can use same getters / setters, etc names if desired.
 // name uniquely if needs to be in the same scope
+
 (() => {
-  const app = new Comfey(document.getElementById('app1'), COMFEY_DEBUG);
+  const view = new ComfeyDom(document.getElementById('app1'), COMFEY_DEBUG);
+  const app = new Comfey(view, COMFEY_DEBUG);
   const [, setActive] = app.useState('stateActive', false);
 
   setInterval(() => {
@@ -107,7 +110,8 @@ Example
 })();
 
 (() => {
-  const app = new Comfey(document.getElementById('app2'), COMFEY_DEBUG);
+  const view = new ComfeyDom(document.getElementById('app2'), COMFEY_DEBUG);
+  const app = new Comfey(view, COMFEY_DEBUG);
   const [, setActive] = app.useState('stateActive', false);
 
   setInterval(() => {
@@ -207,7 +211,9 @@ means, a dynamic attribute will be added to the HTML element when the state `cou
 
 ```js
 import Comfey from 'comfey';
-const app = new Comfey(document.getElementById('app'));
+import ComfeyDom from 'comfey/dom';
+
+const app = new Comfey(new ComfeyDom(document.getElementById('app')));
 
 // Select buttons
 const btnIncrement = document.getElementById('increment');
@@ -247,3 +253,12 @@ btnDecrement.addEventListener('click', () => {
 ### Multi level navigation
 
 [Codesandbox](https://codesandbox.io/s/h1jjx)
+
+## Change log
+
+v2.0
+
+- View abstracted, no more DOM manipulation code in main library
+- Empty instantiation of Comfey will ignore view update (Headless Mode) as opposed to falling back to `document`
+- `comfey/dom` introduced to support DOM manipulation, which can be optionally passed in to Comfey constructor. See examples above or under `/demo/`
+- Comfey is an ESM module

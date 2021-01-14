@@ -23,6 +23,7 @@ setInterval(() => {
 ```
 
 ## Output
+
 The message will be logged to console every second
 
 ```
@@ -37,4 +38,75 @@ The message will be logged to console every second
 { message: 'Comfey 2' }
 { message: 'Hello World!' }
 
+```
+
+## CLI app using FSM
+
+```js
+import Comfey from 'comfey';
+import fsm from 'comfey/fsm';
+import readline from 'readline';
+import journey from './journey.fsm.js';
+
+const readInput = readline.createInterface({
+  input: process.stdin,
+});
+
+const app = new Comfey();
+
+const location = fsm(app, 'location', journey, locationWatcher);
+
+printOptions();
+
+readInput.on('line', function (input) {
+  const inputInt = parseInt(input);
+  if (isNaN(inputInt) || inputInt > location.getTransitions().length) {
+    console.warn('Invalid choice, enter one of the listed numbers.');
+    return;
+  }
+  location.transition(location.getTransitions()[input - 1]);
+  printOptions();
+});
+
+function locationWatcher(newLoc, oldLoc) {
+  console.log(`${oldLoc} -> ${newLoc}`);
+}
+
+function printOptions() {
+  console.log(
+    location.getTransitions().map((transition, i) => `${i + 1}. ${transition}`)
+  );
+}
+```
+
+## Output
+
+```bash
+[ '1. openDrawer', '2. enterBath', '3. exitApartment' ]
+3
+livingRoom -> street
+[
+  '1. enterKiosk',
+  '2. enterMall',
+  '3. enterApartment',
+  '4. enterSupermarket',
+  '5. enterHospital',
+  '6. enterBar'
+]
+2
+street -> mall
+[ '1. exitMall', '2. enterSupermarket' ]
+2
+mall -> supermarket
+[ '1. exitSupermarket' ]
+1
+supermarket -> street
+[
+  '1. enterKiosk',
+  '2. enterMall',
+  '3. enterApartment',
+  '4. enterSupermarket',
+  '5. enterHospital',
+  '6. enterBar'
+]
 ```
