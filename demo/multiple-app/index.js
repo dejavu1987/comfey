@@ -1,6 +1,5 @@
-import Comfey from '../../index';
+import Comfey, { ComfeyDom } from 'comfey';
 import '../../comfey.css';
-import ComfeyDom from '../../view/dom';
 
 const COMFEY_DEBUG = true;
 

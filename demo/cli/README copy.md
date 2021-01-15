@@ -43,9 +43,10 @@ The message will be logged to console every second
 ## CLI app using FSM
 
 ```js
-import Comfey, { fsm } from 'comfey';
-import journey from './journey.fsm.js';
+import Comfey from 'comfey';
+import fsm from 'comfey/fsm';
 import readline from 'readline';
+import journey from './journey.fsm.js';
 
 const readInput = readline.createInterface({
   input: process.stdin,

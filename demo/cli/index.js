@@ -1,4 +1,4 @@
-import Comfey from '../../index.js';
+import Comfey from 'comfey';
 const app = new Comfey();
 const [, setMessage] = app.useState('stateMessage', false, messageWatcher);
 

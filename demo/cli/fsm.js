@@ -1,5 +1,4 @@
-import Comfey from '../../index.js';
-import fsm from '../../fsm/index.js';
+import Comfey, { fsm } from 'comfey';
 import readline from 'readline';
 import journey from './journey.fsm.js';
 

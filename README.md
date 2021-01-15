@@ -1,6 +1,8 @@
 # Comfey 2
 
-Comfey is a tiny data binding library inspired by React hook useState. Read more in [Comfey Wiki](https://github.com/dejavu1987/comfey/wiki)
+Comfey is a tiny javascript state management library inspired by React hook useState.Comfey provides a simple data binding library to update your HTML using simple valid HTML data attributes.
+
+Read more in [Comfey Wiki](https://github.com/dejavu1987/comfey/wiki)
 
 ## Features
 
@@ -44,8 +46,7 @@ yarn add comfey
 
 ## Initialize component
 
-Instantiate `Comfey` - optionally passing a `DOMElement` as root of the component.
-By default `document` will be used.
+Instantiate `Comfey` - optionally passing in a ViewUpdater.
 
 ```js
 import Comfey from 'comfey';
@@ -84,46 +85,19 @@ function countWatcher(newVal, oldVal, stateName) {
 }
 ```
 
-## Multi Apps
+## Templating
 
-You can have any number of applications on a page. Instanciate a new Comfey whenever you need.
+Comfey offers a DOM updater as a separate library. Which will let you use simple HTML data attributes to bind your state data to your DOM.
 
-- Multiple app can use duplicate state names
-- they will be scoped within each app
-- You will have to scope your javascript as well
-- Just avoid declaring getters and setters globally
-
-Example
+Create a new Instance of ComfeyDom by
 
 ```js
-import ComfeyDom from 'comfey/dom';
-// scoped code blocks can use same getters / setters, etc names if desired.
-// name uniquely if needs to be in the same scope
+import Comfey, { ComfeyDom } from 'comfey';
+const viewUpdater = new ComfeyDom(document.getElementById('app'), DEBUG);
 
-(() => {
-  const view = new ComfeyDom(document.getElementById('app1'), COMFEY_DEBUG);
-  const app = new Comfey(view, COMFEY_DEBUG);
-  const [, setActive] = app.useState('stateActive', false);
-
-  setInterval(() => {
-    setActive(Math.random() > 0.5);
-  }, 1000);
-})();
-
-(() => {
-  const view = new ComfeyDom(document.getElementById('app2'), COMFEY_DEBUG);
-  const app = new Comfey(view, COMFEY_DEBUG);
-  const [, setActive] = app.useState('stateActive', false);
-
-  setInterval(() => {
-    setActive(Math.random() > 0.5);
-  }, 1000);
-})();
+// Now pass in the viewUpdater (ComfeyDom instance) to Comfey's constructor
+const app = new Comfey(viewUpdater);
 ```
-
-[More Multi App DEMOs](./demo/multiple-app/index.html)
-
-## Templating
 
 ### Bind state value to an element
 
@@ -170,6 +144,45 @@ means, a dynamic attribute will be added to the HTML element when the state `cou
 
 `font-size: <StateValue>rem`
 
+## Multi Apps
+
+You can have any number of applications on a page. Instanciate a new Comfey whenever you need.
+
+- Multiple apps can use duplicate state names
+- they will be scoped within each app
+- You will have to scope your javascript as well
+- Just avoid declaring getters and setters globally
+
+Example
+
+```js
+import Comfey, { ComfeyDom } from 'comfey';
+// scoped code blocks can use same getters / setters, etc names if desired.
+// name uniquely if needs to be in the same scope
+
+(() => {
+  const view = new ComfeyDom(document.getElementById('app1'), COMFEY_DEBUG);
+  const app = new Comfey(view, COMFEY_DEBUG);
+  const [, setActive] = app.useState('stateActive', false);
+
+  setInterval(() => {
+    setActive(Math.random() > 0.5);
+  }, 1000);
+})();
+
+(() => {
+  const view = new ComfeyDom(document.getElementById('app2'), COMFEY_DEBUG);
+  const app = new Comfey(view, COMFEY_DEBUG);
+  const [, setActive] = app.useState('stateActive', false);
+
+  setInterval(() => {
+    setActive(Math.random() > 0.5);
+  }, 1000);
+})();
+```
+
+[More Multi App DEMOs](./demo/multiple-app/index.html)
+
 ## Examples
 
 ### Counter Example
@@ -211,8 +224,7 @@ means, a dynamic attribute will be added to the HTML element when the state `cou
 ```
 
 ```js
-import Comfey from 'comfey';
-import ComfeyDom from 'comfey/dom';
+import Comfey, { ComfeyDom } from 'comfey';
 
 const app = new Comfey(new ComfeyDom(document.getElementById('app')));
 
@@ -259,7 +271,7 @@ btnDecrement.addEventListener('click', () => {
 
 v2.0
 
-- View abstracted, no more DOM manipulation code in main library
+- ViewUpdater abstracted, no more DOM manipulation code in main library.
 - Empty instantiation of Comfey will ignore view update (Headless Mode) as opposed to falling back to `document`
-- `comfey/dom` introduced to support DOM manipulation, which can be optionally passed in to Comfey constructor. See examples above or under `/demo/`
+- `ComfeyDom` introduced to support DOM manipulation, which can be optionally passed in to Comfey constructor. See examples above or in `/demo/` directory.
 - Comfey is an ESM module

@@ -19,10 +19,6 @@
     "binding",
     "state"
   ],
-  "exports": {
-    "./fsm": "./fsm/index.js",
-    "./dom": "./view/dom.js"
-  },
   "type": "module",
   "author": "anil@anilmaharjan.com.np",
   "license": "MIT",
