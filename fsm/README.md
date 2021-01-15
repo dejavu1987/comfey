@@ -18,6 +18,7 @@ const locationFsmConfig = {
   start: 'a',
   a: { goToC: 'c' },
   c: { goToX: 'x', goToA: 'a' },
+  x: {}
 };
 
 const app = new Comfey();
