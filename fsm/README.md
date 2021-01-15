@@ -13,7 +13,6 @@ Very light weight add-on to Comfey to power your states with Finite State Machin
 ```js
 import Comfey from 'comfey';
 import fsm from 'comfey/fsm';
-const DEBUG = true;
 
 const locationFsmConfig = {
   start: 'a',
@@ -21,7 +20,7 @@ const locationFsmConfig = {
   c: { goToX: 'x', goToA: 'a' },
 };
 
-const app = new Comfey(document.getElementById('app'), DEBUG);
+const app = new Comfey();
 
 const location = fsm(app, 'location', locationFsmConfig, locationWatcher);
 
