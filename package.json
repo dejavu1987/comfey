@@ -1,6 +1,6 @@
 {
   "name": "comfey",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Tiny micro mini data binding library inspired by react hook useState",
   "main": "index.js",
   "scripts": {
