@@ -1,7 +1,7 @@
-# Comfey [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md) [![RussianWarship](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/RussianWarship.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
-
+# Comfey [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md) [![RussianWarship](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/RussianWarship.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md) [![Rate this package](https://badges.openbase.com/js/rating/comfey.svg?token=NFgSinzKp5ZlP72Auu0qfhZ+B41yuy4UCdCj4Or35uo=)](https://openbase.com/js/comfey?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
 
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
+
 
 Comfey is a tiny data binding library inspired by React hook useState. Read more in [Comfey Wiki](https://github.com/dejavu1987/comfey/wiki)
 
